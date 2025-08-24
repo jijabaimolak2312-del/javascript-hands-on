@@ -1,0 +1,27 @@
+var myfullName;
+console.log("Before Initialization My Full Name Is : " + myfullName);
+console.log("==Update Value With First and Last Name ==");
+var myFullName="Jija Molak";
+console.log("My First & last Name Is : " + myFullName);
+console.log("==Update Value With First Name,Middle Name and Last Name ==");
+var myFullName="Jija Mahadev Molak";
+console.log("My Full Name Is :" + myFullName);
+console.log("===================================================");
+var myLove="I love only JS";
+console.log(myLove);
+console.log("===================================================");
+var firstName="Jija";
+console.log("First name : " + firstName);
+var lastName="Molak";
+console.log("Last name : " + lastName);
+var age=24;
+console.log("Age : " + age);
+var address="At post Sangola Dhayati";
+console.log("Address: " +address);
+var pinCode=413307;
+console.log("Pincode is : " + pinCode);
+var gender="Female";
+console.log("Gender is : " + gender);
+var isMarried="No";
+console.log("isMarried : " + isMarried);
+
