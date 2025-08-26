@@ -28,7 +28,6 @@ console.log(fruits);
 
 
 
-
 const as=fruits.slice(1,5);
 console.log(as);
 
@@ -36,5 +35,4 @@ const last3=fruits.slice(fruits.length-3);
 console.log(last3);
 
 //nsole.log(fruits);
-
 
