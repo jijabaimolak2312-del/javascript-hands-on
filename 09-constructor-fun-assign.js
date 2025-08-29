@@ -4,6 +4,8 @@ function Bank(bankName,location,ifscCode,branchCode){
     this.ifscCode=ifscCode;
     this.branchCode=branchCode;
 }
+
+
 const yesBank=new Bank("Yes Bank","Mumbai","YESB0001234","YESBR001");
 const sbiBank=new Bank("State Bank of India","Pune","SBIN0005678","SBIBR002");
 const mahaBank=new Bank("Mah Bank","Nagpur","MAHB0002222","MAHBR003");
