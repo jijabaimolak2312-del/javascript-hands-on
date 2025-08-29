@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Examole</title>
+    <a href="11-sessionStorage.js"></a>
+    <style>
+        body{font-family: system-ui,Segoe UI,Roboto,Arial;padding: 20px;max-width: 800px}label{
+            display: block;margin-top: 10px
+        }input{padding: 8 px; width:100%; max-width: 420px}
+        button{margin: 8px 6px 0 0;padding: 8px 12px;border-radius: 6px;cursor:pointer}
+        table{margin-top: 15px;border-collapse: collapse;width:100%;max-width:800px}
+        th,td{border:1px solid #ddd;padding: 8px;text-align: left}
+        #msg{margin-top:10px;color: green}
+    </style>
+</head>
+<body>
+  <h1>LocalStorage</h1>  
+  <label>Full Name
+    <input id="name" placeholder="Molak Jija Mahadev">
+  </label>
+  <label>City
+    <input id="city" placeholder="Sangola">
+  </label>
+  <label>Pin Code
+    <input id="pinCode" placeholder="413317">
+  </label>
+  <label>District
+    <input id="district" placeholder="Solapur">
+  </label>
+  <div>
+    <button onclick="saveAll()">Save to LocalStorage</button>
+    <button onclick="removeCity()"> Remove 'city'</button>
+    <button onclick="showStorage()">Show storage</button>
+    <button onclick="clearAll()">Clear all</button>
+  </div>
+  <div id="msg"></div>
+  <div id="tableContainer"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        ['name','city','pinCode','district'].forEach(k=>{const v =localStorage.getItem(k);
+         if(v !==null)document.getElementById(k).value=v;
+        });
+        showStorage();
+    });
+    function removeCity(){
+        localStorage.removeItem('city');
+        document.getElementById('city').value='';
+        showMsg("Remove city");
+        showStorage();
+    }
+    function clearAll(){
+         ['name','city','pinCode','district'].forEach(k=>localStorage.removeItem(k));
+        
+        showMsg("All items removed");
+        showStorage();
+    }
+    function showMsg(t){
+        const el=document.getElementById('msg');
+        el.textContent=t;
+        setTimeout(()=>el.textContent='',3000);
+    }
+    function showStorage(){
+        const keys=['name','city','pinCode','district'];
+        const container=document.getElementById('tableContainer');
+        let html='<table><tr><th>Key</th><th>Value</th></tr>';
+            keys.forEach(k=>{
+                const v = localStorage.getItem(k);
+                if(v !==null)html +=`<tr><td>${k}</td><td>${escapeHtml(v)}</td></tr>`;
+            });
+            html +='</table>';
+            container.innerHTML=html;
+    }
+    function escapeHtml(s){
+        return String (s).replace(/[&<>'']/g,c=>({'&':'&amp;','<':'&|t;',"":'&quot;',"":"&#39;"}[c]));
+    }
+
+
+  </script>
+</body>
+</html>
